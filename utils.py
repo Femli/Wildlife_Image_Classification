@@ -1,7 +1,6 @@
 import numpy as np
 from PIL import Image
 import pandas as pd
-from config import TEST_IMG_DIR
 
 def reformat_img(image_file):
     img = Image.open(image_file)
@@ -24,13 +23,3 @@ def test_model(loaded_model, img):
     prediction_probs = loaded_model.predict(img)
     predicted_label = class_labels[np.argmax(prediction_probs)]
     return predicted_label, prediction_probs
-
-def lookup(filename):
-    classes_df = pd.read_csv(TEST_IMG_DIR, index_col="id")
-    row = classes_df.loc(f'{filename}')
-    try:
-        idx = list(row).index(1)
-        label = str(classes_df.columns[idx])
-        return label
-    except:
-        return "Image not found. Try again."

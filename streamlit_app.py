@@ -1,7 +1,4 @@
-from ast import arg
-from turtle import onclick
 from PIL import Image
-from keras.models import model_from_json
 import numpy as np
 import pandas as pd
 import streamlit as st
@@ -9,7 +6,6 @@ import time
 import os
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras.preprocessing.image import img_to_array, load_img
 
 from config import MODEL_DIR, WEIGHTS_FILE, IMAGE_REPO_URL
 from utils import reformat_img, test_model
